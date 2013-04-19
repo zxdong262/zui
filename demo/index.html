@@ -1,0 +1,893 @@
+
+ <!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8" /> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+<title>zui</title>
+<meta name="robots" content="index,follow,noodp,noydir" /> 
+<meta name="description" content="zui demo page" /> 
+<meta name="keywords" content="zui" /> 
+<link rel='stylesheet' id='Inder-css'  href='http://fonts.googleapis.com/css?family=Inder' type='text/css' media='all' />
+<link rel="stylesheet" type="text/css" media="all" href="../css/zui.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/demo.css" />
+</head>
+<body>
+<div id="ie-warning" class="pd mg aligncenter font24 bold">ie is not supported, please use firefox, chrome, opera, safari or other webkit browsers to visit this page.</div>
+
+<div id="wrapper">
+  <h2 class="hide">zui</h2>
+  <h1 id="title">zui</h1>
+  <p>a mobile ui framework based on zepto.js <a class="label bg-fff corner border" href="https://github.com/zxdong262/zui">view at github</a></p>
+  <p><a class="btn btn-a btn-inline btn-corner" href="https://github.com/zxdong262/zui/archive/master.zip">download zui ver 0.5</a></p>
+
+  <h2>popup,modal</h2>
+  <h3>popup</h3>
+  <pre class="html">
+    <p>
+      <a href="javascript:;" id="pop" class="btn btn-a btn-inline shadow with-icon-alert">Click to popup</a>
+      <a href="javascript:popup({content:'write it in html.'})" class="btn btn-a btn-inline shadow with-icon-alert">write it in html</a>
+      <a href="javascript:;"  id="pop2" class="btn btn-b btn-inline shadow with-icon-alert">hide in 3000ms</a>
+      <a href="javascript:;"  id="pop3" class="btn btn-c btn-inline shadow with-icon-alert">short msg</a>
+      <a href="javascript:;"  id="pop4" class="btn btn-d btn-inline shadow with-icon-alert">position:static</a>
+    </p>
+  </pre>
+  <pre class="js">
+  //popup
+    $('#pop').click(function() {
+        popup({content:'popup content'})
+    })
+
+    $('#pop2').click(function() {
+      popup({
+        content:'popup content',
+        timer:3000
+      })
+    })
+
+    $('#pop3').click(function() {
+      popup({
+        content:'loading...',
+        timer:3000,
+        short:true
+      })
+    })
+
+    $('#pop4').click(function() {
+      popup({
+        content:'position:static',
+        fixed:false,
+        css:'close-btn-pos-left',
+      })
+    })
+  </pre>
+  
+  <h3>modal</h3>
+  <pre class="html">
+    <div id="modal-content-wrap">
+      <div>
+        <h4>This is modal content</h4>
+        <p>Check if the parent node contains the given DOM node. Returns false if both are the same node.</p>
+      </div>
+    </div>
+    <a href="javascript:;" id="modal-btn" class="btn btn-a shadow with-icon-arrow-u">Click to see modal</a>
+  </pre>
+  <pre class="js">
+    $('#modal-btn').click(function() {
+        $('#modal-content-wrap').modal({
+            width:400,
+            title:'Modal Title',
+            dismiss:true,
+			showTitle:true
+        })
+    })
+  </pre>
+  
+  <h2>button</h2>
+  
+  <h3>basic</h3>
+  <pre class="html">
+    <p><a href="javascript:;" class="btn btn-a">link button</a></p>
+    <p><a href="javascript:;" class="btn btn-a shadow">link button with shadow</a></p>
+    <p><a href="javascript:;" class="btn btn-a with-icon-arrow-r">link button with icon</a></p>
+    <p><a href="javascript:;" class="btn btn-a with-icon-arrow-r icon-pos-right">link button with icon at right</a></p>
+  </pre>
+  
+  <h3>inline, color-theme</h3>
+  <pre class="html">
+    <p>
+      <a href="javascript:;" class="btn btn-inline btn-a with-icon-plus shadow">button</a>
+      <a href="javascript:;" class="btn btn-inline btn-a">button</a>
+      <a href="javascript:;" class="btn btn-inline btn-a">button</a>
+      <a href="javascript:;" class="btn btn-inline btn-b with-icon-check">button</a>
+      <a href="javascript:;" class="btn btn-inline btn-c with-icon-star">button</a>
+      <a href="javascript:;" class="btn btn-inline btn-d with-icon-alert shadow">button</a>
+      <a href="javascript:;" class="btn btn-inline btn-e with-icon-info">button</a>
+    </p>
+  </pre>
+  </pre>
+  
+  <h3>corner,shadow,icon only</h3>
+  <pre class="html">
+    <p>
+      <a href="javascript:;" class="btn btn-inline btn-a btn-corner">button</a>
+      <a href="javascript:;" class="btn btn-inline btn-a btn-corner shadow">button</a>
+      <a href="javascript:;" class="btn btn-inline btn-b with-icon-check btn-corner">button</a>
+      <a href="javascript:;" class="btn icon-only with-icon-gear">icon only button</a>
+    </p>
+  </pre>
+  
+  <h3>button group</h3>
+  <pre class="html">
+    <div class="controlgroup">
+      <a href="javascript:;" class="btn btn-a btn-corner">javascript</a>
+      <a href="javascript:;" class="btn btn-a btn-corner">zepto.js</a>
+      <a href="javascript:;" class="btn btn-a btn-corner">html5beta.com</a>
+      <a href="javascript:;" class="btn btn-a btn-corner">zui</a>
+    </div>
+  </pre>
+
+  <h2>grid</h2>
+  <h3>two grid</h3>
+  <pre class="html">
+    <div class="grid gridx2">
+      <a href="javascript:;" class="btn btn-b">Confirm</a>
+      <a href="javascript:;" class="btn btn-e">Cancel</a>
+      <a href="javascript:;" class="btn btn-b">Confirm</a>
+      <a href="javascript:;" class="btn btn-e">Cancel</a>
+      <a href="javascript:;" class="btn btn-b">Confirm</a>
+      <a href="javascript:;" class="btn btn-e">Cancel</a>
+    </div>
+  </pre>
+  
+  <h3>three grid</h3>
+  <pre class="html">
+    <div class="grid gridx3">
+      <a href="javascript:;" class="btn btn-b">Confirm</a>
+      <a href="javascript:;" class="btn btn-e">Cancel</a>
+      <a href="javascript:;" class="btn btn-b">Confirm</a>
+      <a href="javascript:;" class="btn btn-e">Cancel</a>
+      <a href="javascript:;" class="btn btn-b">Confirm</a>
+      <a href="javascript:;" class="btn btn-e">Cancel</a>
+    </div>
+  </pre>
+  
+  <h3>four grid</h3>
+  <pre class="html">
+    <div class="grid gridx4">
+      <a href="javascript:;" class="btn btn-b">Confirm</a>
+      <a href="javascript:;" class="btn btn-e">Cancel</a>
+      <a href="javascript:;" class="btn btn-b">Confirm</a>
+      <a href="javascript:;" class="btn btn-e">Cancel</a>
+      <a href="javascript:;" class="btn btn-b">Confirm</a>
+      <a href="javascript:;" class="btn btn-e">Cancel</a>
+      <a href="javascript:;" class="btn btn-b">Confirm</a>
+      <a href="javascript:;" class="btn btn-e">Cancel</a>
+    </div>
+  </pre>
+  
+  <h3>five grid</h3>
+  <pre class="html">
+    <div class="grid gridx5">
+      <a href="javascript:;" class="btn btn-b">Confirm</a>
+      <a href="javascript:;" class="btn btn-e">Cancel</a>
+      <a href="javascript:;" class="btn btn-b">Confirm</a>
+      <a href="javascript:;" class="btn btn-e">Cancel</a>
+      <a href="javascript:;" class="btn btn-b">Confirm</a>
+      <a href="javascript:;" class="btn btn-e">Cancel</a>
+      <a href="javascript:;" class="btn btn-b">Confirm</a>
+      <a href="javascript:;" class="btn btn-e">Cancel</a>
+      <a href="javascript:;" class="btn btn-b">Confirm</a>
+      <a href="javascript:;" class="btn btn-e">Cancel</a>
+    </div>
+  </pre>
+
+  <h2>box-model</h2>
+  
+  <h3>border,padding</h3>
+  <pre class="html">
+    <p class="render-class pd border"></p>
+    <p class="render-class pd bordert"></p>
+    <p class="render-class pd borderb"></p>
+    <p class="render-class pdt border"></p>
+    <p class="render-class pdb border"></p>
+    <p class="render-class pdl border"></p>
+    <p class="render-class pdr border alignright"></p>
+    <p class="render-class pdtb border aligncenter"></p>
+  </pre>
+  
+  <h3>margin</h3>
+  <pre class="html">
+    <div class="demo border mg">
+      <div class="render-class border mg"></div>
+    </div>
+    <div class="demo border mg">
+      <div class="render-class border mgr"></div>
+    </div>
+    <div class="demo border mg">
+      <div class="render-class border mgl"></div>
+    </div>
+    <div class="demo border mg">
+      <div class="render-class border mgt"></div>
+    </div>
+    <div class="demo border mg">
+      <div class="render-class border mgb"></div>
+    </div>
+    <div class="demo border mg">
+      <div class="render-class border mgtb"></div>
+    </div>
+    <div class="demo border mg">
+      <div class="render-class border mglr"></div>
+    </div>
+  </pre>
+
+  <h3>float</h3>
+  <pre class="html">
+    <div class="demo pd border mgtb fix">
+      <span class="render-class fleft mg border iblock"></span>
+      <span class="render-class fleft mg border iblock"></span>
+    </div>
+    <div class="demo pd border mgtb fix">
+      <span class="render-class fright mg border iblock"></span>
+      <span class="render-class fright mg border iblock"></span>
+    </div>
+  </pre>
+  
+  <h3>box-shadow</h3>
+  <pre class="html">
+    <p class="render-class pd border shadow"></p>
+    <p class="render-class pd border shadow-inset"></p>
+  </pre>
+  
+  <h3>border-radius</h3>
+  <pre class="html">
+    <p class="render-class pd border corner"></p>
+    <p class="render-class pd border cornerl"></p>
+    <p class="render-class pd border cornerr"></p>
+    <p class="render-class pd border cornert"></p>
+    <p class="render-class pd border cornerb"></p>
+  </pre>
+
+  <h3>span basic</h3>
+  <pre class="html">
+    <p class="border">
+      <span class="render-class mg border"></span>
+      <span class="render-class mg border"></span>
+      <span class="render-class mg border"></span>
+    </p>
+  </pre>
+
+  <h3>iblock</h3>
+  <pre class="html">
+    <p class="border">
+      <span class="render-class iblock mg border"></span>
+      <span class="render-class iblock mg border"></span>
+      <span class="render-class iblock mg border"></span>
+    </p>
+  </pre>
+
+  <h3>block</h3>
+  <pre class="html">
+    <p class="border">
+      <span class="render-class block mg border"></span>
+      <span class="render-class block mg border"></span>
+      <span class="render-class block mg border"></span>
+    </p>
+  </pre>
+
+  <h3>table-cell</h3>
+  <pre class="html">
+    <div class="tablerow">
+  
+      <span class="pd tablecell mg border">
+        <span class="block border mg pd">class="block border mg pd"</span>
+        <span class="block border mg pd">class="block border mg pd"</span>
+        <span class="block border mg pd">class="block border mg pd"</span>
+      </span>
+      <span class="pd tablecell mg border">
+        <span class="block border mg pd">class="block border mg pd"</span>
+        <span class="block border mg pd">class="block border mg pd"</span>
+        <span class="block border mg pd">class="block border mg pd"</span>
+      </span>
+      <span class="pd tablecell mg border">
+        <span class="block border mg pd">class="block border mg pd"</span>
+        <span class="block border mg pd">class="block border mg pd"</span>
+        <span class="block border mg pd">class="block border mg pd"</span>
+      </span>
+      <span class="pd tablecell mg border">
+        <span class="block border mg pd">class="block border mg pd"</span>
+        <span class="block border mg pd">class="block border mg pd"</span>
+        <span class="block border mg pd">class="block border mg pd"</span>
+      </span>
+  
+    </div>
+  
+    <div class="tablerow">
+  
+      <span class="pd tablecell mg border">
+        <span class="block border mg pd">class="block border mg pd"</span>
+      </span>
+      <span class="pd tablecell mg border">
+        <span class="block border mg pd">class="block border mg pd"</span>
+        <span class="block border mg pd">class="block border mg pd"</span>
+        <span class="block border mg pd">class="block border mg pd"</span>
+      </span>
+      <span class="pd tablecell mg border">
+        <span class="block border mg pd">class="block border mg pd"</span>
+        <span class="block border mg pd">class="block border mg pd"</span>
+      </span>
+  
+    </div>
+  </pre>
+  
+  <h2>color,background color</h2>
+  <pre class="html">
+    <p class="render-class pd border color-red bg-highlight"></p>
+    <p class="render-class pd border bg-black"></p>
+    <p class="render-class pd border bg-blue"></p>
+    <p class="render-class pd border bg-green"></p>
+    <p class="render-class pd border bg-red"></p>
+    <p class="render-class pd border color-blue bg-eee"></p>
+    <p class="render-class pd border color-yellow bg-black"></p>
+    <p class="render-class pd border color-green"></p>
+    <p class="render-class pd border color-grey"></p>
+    <p class="render-class pd border color-black"></p>
+  </pre>
+
+  <h2>font</h2>
+  
+  <h3>font size</h3>
+  <pre class="html">
+    <p class="render-class font24"></p>
+    <p class="render-class font22"></p>
+    <p class="render-class font20"></p>
+    <p class="render-class font18"></p>
+    <p class="render-class font16"></p>
+    <p class="render-class font14"></p>
+    <p class="render-class font12"></p>
+    <p class="render-class font9"></p>
+    <p class="render-class font8"></p>
+  </pre>
+  
+  <h3>bold,italic,indent</h3>
+  <pre class="html">
+    <p class="render-class bold"></p>
+    <p class="render-class em"></p>
+    <p class="render-class indent border"></p>
+  </pre>
+
+  
+
+  <h2>table,acordin,list,toolbar</h2>
+  
+  <h3>table</h3>
+  <pre class="html">
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Movie Title</th>
+          <th>Year</th>
+          <th><abbr title="Rotten Tomato Rating">Rating</abbr></th>
+          <th>Reviews</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>1</th>
+          <td><a href="#" data-rel="external">Citizen Kane</a></td>
+          <td>1941</td>
+          <td>100%</td>
+          <td>74</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td><a href="#" data-rel="external">Casablanca</a></td>
+          <td>1942</td>
+          <td>97%</td>
+          <td>64</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td><a href="#" data-rel="external">The Godfather</a></td>
+          <td>1972</td>
+          <td>97%</td>
+          <td>87</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td><a href="#" data-rel="external">Gone with the Wind</a></td>
+          <td>1939</td>
+          <td>96%</td>
+          <td>87</td>
+        </tr>
+        <tr>
+          <th>5</th>
+          <td><a href="#" data-rel="external">Lawrence of Arabia</a></td>
+          <td>1962</td>
+          <td>94%</td>
+          <td>87</td>
+        </tr>
+        <tr>
+          <th>6</th>
+          <td><a href="#" data-rel="external">Dr. Strangelove Or How I Learned to Stop Worrying and Love the Bomb</a></td>
+          <td>1964</td>
+          <td>92%</td>
+          <td>74</td>
+        </tr>
+        <tr>
+          <th>7</th>
+          <td><a href="#">The Graduate</a></td>
+          <td>1967</td>
+          <td>91%</td>
+          <td>122</td>
+        </tr>
+        <tr>
+          <th>8</th>
+          <td><a href="#" data-rel="external">The Wizard of Oz</a></td>
+          <td>1939</td>
+          <td>90%</td>
+          <td>72</td>
+        </tr>
+        <tr>
+          <th>9</th>
+          <td><a href="#" data-rel="external">Singin' in the Rain</a></td>
+          <td>1952</td>
+          <td>89%</td>
+          <td>85</td>
+        </tr>
+        <tr>
+          <th>10</th>
+          <td class="title"><a href="#" data-rel="external">Inception</a></td>
+          <td>2010</td>
+          <td>84%</td>
+          <td>78</td>
+        </tr>
+      </tbody>
+    </table>
+  </pre>
+  
+  <h3>acordin</h3>
+  <pre class="html">
+    <div class="acordin">
+      <h3>acordin unit 1 header</h3>
+      <div class="pd">
+        acordin unit 1 body content 
+      </div>
+
+      <h3>acordin unit 2 header</h3>
+      <div class="pd">
+        acordin unit 2 body content 
+      </div>
+
+      <h3>acordin unit 3 header</h3>
+      <div class="pd">
+        acordin unit 3 body content 
+      </div>
+
+      <h3>acordin unit 4 header</h3>
+      <div class="pd">
+        acordin unit 4 body content 
+      </div>
+    </div>
+  </pre>
+ 
+ <h3>list basic</h3>
+  <pre class="html">
+    <ul class="list">
+      <li><a class="li-head" href="#">Apple</a></li>
+      <li><a class="li-head" href="#">Banana</a></li>
+      <li><a class="li-head" href="#">Cherry</a></li>
+      <li><a class="li-head" href="#">Cranberry</a></li>
+      <li><a class="li-head" href="#">Grape</a></li>
+      <li><a class="li-head" href="#">Orange</a></li>
+    </ul>
+  </pre>
+
+  <h3>list with labels</h3>
+  <pre class="html">
+    <ul class="list">
+      <li><a class="li-head" href="#">Apple</a><label class="bg-fff label corner border">123</label></li>
+      <li><a class="li-head" href="#">Banana</a><label class="bg-fff label corner border">1233</label></li>
+      <li><a class="li-head" href="#">Cherry</a><label class="bg-fff label corner border color-red">5</label></li>
+      <li><a class="li-head" href="#">Cranberry</a><label class="bg-fff label corner border">new!</label></li>
+      <li><a class="li-head" href="#">Grape</a><label class="bg-fff label corner border">hey!</label></li>
+      <li><a class="li-head" href="#">Orange</a><label class="bg-fff label corner border">haha</label></li>
+    </ul>
+  </pre>
+
+  <h3>list with shadow</h3>
+  <pre class="html">
+    <ul class="list shadow">
+      <li><a class="li-head" href="#">Apple</a></li>
+      <li><a class="li-head" href="#">Banana</a></li>
+      <li><a class="li-head" href="#">Cherry</a></li>
+      <li><a class="li-head" href="#">Cranberry</a></li>
+      <li><a class="li-head" href="#">Grape</a></li>
+      <li><a class="li-head" href="#">Orange</a></li>
+    </ul>
+  </pre>
+
+  <h3>list-shadow, corner</h3>
+  <pre class="html">
+    <ul class="list shadow corner">
+      <li><a class="li-head" href="#">Apple</a></li>
+      <li><a class="li-head" href="#">Banana</a></li>
+      <li><a class="li-head" href="#">Cherry</a></li>
+      <li><a class="li-head" href="#">Cranberry</a></li>
+      <li><a class="li-head" href="#">Grape</a></li>
+      <li><a class="li-head" href="#">Orange</a></li>
+    </ul>
+  </pre>
+
+  <h3>list-shadow, corner, icon</h3>
+  <pre class="html">
+    <ul class="list shadow corner">
+      <li><a class="li-head with-icon has-icon-arrow-u" href="#">Apple</a></li>
+      <li><a class="li-head with-icon with-icon-right has-icon-arrow-u" href="#">Banana</a></li>
+      <li><a class="li-head with-icon has-icon-arrow-u" href="#">Cherry</a></li>
+      <li><a class="li-head with-icon with-icon-cell-right has-icon-arrow-d" href="#">Cranberry</a></li>
+      <li><a class="li-head with-icon has-icon-arrow-u" href="#">Grape</a></li>
+      <li><a class="li-head with-icon has-icon-arrow-u" href="#">Orange</a></li>
+    </ul>
+  </pre>
+  
+  <h3>toolbar</h3>
+  <pre class="html">
+    <div class="bar aligncenter bg-blue">
+      <a href="javascript:;" class="btn btn-b btn-corner btn-inline btn-bar-left with-icon-arrow-l">Back</a>
+      <h1>Title</h1>
+      <a href="javascript:;" class="btn btn-b btn-corner btn-inline btn-bar-right with-icon-arrow-r icon-pos-right">Next</a>
+    </div>
+    
+    <div class="bar aligncenter bg-red">
+      <h1>class="bar aligncenter bg-red"</h1>
+    </div>
+    
+    <div class="bar aligncenter bg-green">
+      <h1>class="bar aligncenter bg-green"</h1>
+    </div>
+    
+    <div class="bar aligncenter bg-fff">
+      <h1>class="bar aligncenter bg-fff"</h1>
+    </div>
+    
+    <p>optional: class="header-fixed" or class="footer-fixed"</p>
+  </pre>
+  <h2>icons</h2>
+  
+  <h3>icons</h3>
+  <pre class="html">
+    <div class="pd">
+      <span class="icon icon-plus"></span>
+      <span class="icon icon-minus"></span>
+      <span class="icon icon-delete"></span>
+      <span class="icon icon-arrow-r"></span>
+      <span class="icon icon-arrow-l"></span>
+      <span class="icon icon-arrow-u"></span>
+      <span class="icon icon-arrow-d"></span>
+      <span class="icon icon-check"></span>
+      <span class="icon icon-gear"></span>
+      <span class="icon icon-refresh"></span>
+      <span class="icon icon-forward"></span>
+      <span class="icon icon-back"></span>
+      <span class="icon icon-grid"></span>
+      <span class="icon icon-star"></span>
+      <span class="icon icon-alert"></span>
+      <span class="icon icon-info"></span>
+      <span class="icon icon-home"></span>
+      <span class="icon icon-search"></span>
+      <span class="icon icon-checkbox-on"></span>
+      <span class="icon icon-checkbox-off"></span>
+      <span class="icon icon-radio-on"></span>
+      <span class="icon icon-radio-off"></span>
+      <span class="icon icon-bars"></span>
+      <span class="icon icon-edit"></span>
+      <span class="icon icon-tel"></span>
+      <span class="icon icon-phone"></span>
+      <span class="icon icon-mobile"></span>
+    </div>
+  </pre>
+
+  <h3>icons,border-radius</h3>
+  <pre class="html">
+    <div class="pd">
+      <span class="icon-corner icon icon-plus"></span>
+      <span class="icon-corner icon icon-minus"></span>
+      <span class="icon-corner icon icon-delete"></span>
+      <span class="icon-corner icon icon-arrow-r"></span>
+      <span class="icon-corner icon icon-arrow-l"></span>
+      <span class="icon-corner icon icon-arrow-u"></span>
+      <span class="icon-corner icon icon-arrow-d"></span>
+      <span class="icon-corner icon icon-check"></span>
+      <span class="icon-corner icon icon-gear"></span>
+      <span class="icon-corner icon icon-refresh"></span>
+      <span class="icon-corner icon icon-forward"></span>
+      <span class="icon-corner icon icon-back"></span>
+      <span class="icon-corner icon icon-grid"></span>
+      <span class="icon-corner icon icon-star"></span>
+      <span class="icon-corner icon icon-alert"></span>
+      <span class="icon-corner icon icon-info"></span>
+      <span class="icon-corner icon icon-home"></span>
+      <span class="icon-corner icon icon-search"></span>
+      <span class="icon-corner icon icon-checkbox-on"></span>
+      <span class="icon-corner icon icon-checkbox-off"></span>
+      <span class="icon-corner icon icon-radio-on"></span>
+      <span class="icon-corner icon icon-radio-off"></span>
+      <span class="icon-corner icon icon-bars"></span>
+      <span class="icon-corner icon icon-edit"></span>
+      <span class="icon-corner icon icon-tel"></span>
+      <span class="icon-corner icon icon-phone"></span>
+      <span class="icon-corner icon icon-mobile"></span>
+    </div>
+  </pre>
+
+  <h3>icons,outer-cell</h3>
+  <pre class="html">
+    <div class="pd">
+      <span class="icon-cell icon-shadow icon-corner"><span class="icon-corner icon icon-plus"></span></span>
+      <span class="icon-cell icon-shadow icon-corner"><span class="icon-corner icon icon-minus"></span></span>
+      <span class="icon-cell icon-shadow icon-corner"><span class="icon-corner icon icon-delete"></span></span>
+      <span class="icon-cell icon-shadow icon-corner"><span class="icon-corner icon icon-arrow-r"></span></span>
+      <span class="icon-cell icon-shadow icon-corner"><span class="icon-corner icon icon-arrow-l"></span></span>
+      <span class="icon-cell icon-shadow icon-corner"><span class="icon-corner icon icon-arrow-u"></span></span>
+      <span class="icon-cell icon-shadow icon-corner"><span class="icon-corner icon icon-arrow-d"></span></span>
+      <span class="icon-cell icon-shadow icon-corner"><span class="icon-corner icon icon-check"></span></span>
+      <span class="icon-cell icon-shadow icon-corner"><span class="icon-corner icon icon-gear"></span></span>
+      <span class="icon-cell icon-shadow icon-corner"><span class="icon-corner icon icon-refresh"></span></span>
+      <span class="icon-cell icon-shadow icon-corner"><span class="icon-corner icon icon-forward"></span></span>
+      <span class="icon-cell icon-shadow icon-corner"><span class="icon-corner icon icon-back"></span></span>
+      <span class="icon-cell icon-shadow icon-corner"><span class="icon-corner icon icon-grid"></span></span>
+      <span class="icon-cell icon-shadow icon-corner"><span class="icon-corner icon icon-star"></span></span>
+      <span class="icon-cell icon-shadow icon-corner"><span class="icon-corner icon icon-alert"></span></span>
+      <span class="icon-cell icon-shadow icon-corner"><span class="icon-corner icon icon-info"></span></span>
+      <span class="icon-cell icon-shadow icon-corner"><span class="icon-corner icon icon-home"></span></span>
+      <span class="icon-cell icon-shadow icon-corner"><span class="icon-corner icon icon-search"></span></span>
+      <span class="icon-cell icon-shadow icon-corner"><span class="icon-corner icon icon-checkbox-on"></span></span>
+      <span class="icon-cell icon-shadow icon-corner"><span class="icon-corner icon icon-checkbox-off"></span></span>
+      <span class="icon-cell icon-shadow icon-corner"><span class="icon-corner icon icon-radio-on"></span></span>
+      <span class="icon-cell icon-shadow icon-corner"><span class="icon-corner icon icon-radio-off"></span></span>
+      <span class="icon-cell icon-shadow icon-corner"><span class="icon-corner icon icon-bars"></span></span>
+      <span class="icon-cell icon-shadow icon-corner"><span class="icon-corner icon icon-edit"></span></span>
+      <span class="icon-cell icon-shadow icon-corner"><span class="icon-corner icon icon-tel"></span></span>
+      <span class="icon-cell icon-shadow icon-corner"><span class="icon-corner icon icon-phone"></span></span>
+      <span class="icon-cell icon-shadow icon-corner"><span class="icon-corner icon icon-mobile"></span></span>
+    </div>
+  </pre>
+
+  <h2>form element</h2>
+  
+  <h3>all inputs</h3>
+  <pre class="html">
+    <div class="inputs-demo">
+      <p><input type="text" /></p>
+      <p><input type="search" /></p>
+      <p><input type="tel" /></p>
+      <p><input type="color" /></p>
+      <p><input type="date" /></p>
+      <p><input type="datetime" /></p>
+      <p><input type="datetime-local" /></p>
+      <p><input type="email" /></p>
+      <p><input type="month" /></p>
+      <p><input type="number" /></p>
+      <p><input type="password" /></p>
+      <p><input type="range" /></p>
+      <p><input type="time" /></p>
+      <p><input type="url" /></p>
+      <p><input type="week" /></p>
+      <p><input type="file" /></p>
+    </div>
+  </pre>
+
+  <h3>with clear btn</h3>
+  <pre class="html">
+    <div class="inputs-demo">
+      <p>
+        <label>input with clear button</label>
+        <input type="text" class="with-btn-clear" />
+      </p>
+      <p>
+        <label>input set font size 1.2 em</label>
+        <input type="text" class="with-btn-clear font12" />
+      </p>
+    </div>
+  </pre>
+
+  <h3>textarea</h3>
+  <pre class="html">
+    <p>
+      <textarea cols="" rows="5" class="with-btn-clear" placeholder="textarea with clear btn"></textarea>
+    </p>
+    <p>
+      <textarea cols="" rows="5" placeholder="textarea without clear btn"></textarea>
+    </p>
+  </pre>
+
+  <h3>default radio</h3>
+  <div class="inputs-demo">
+    <p>
+      <label>javascript</label><input type="radio" name="opt1" checked value="sg" />
+      <label>node.js</label><input type="radio" name="opt1" value="sh" />
+      <label>zepto.js</label><input type="radio" name="opt1" value="xy" />
+    </p>
+  </div>
+
+  <h3>ui radio</h3>
+  <p>class="radiogroup" pair label with radio</p>
+  <pre class="html">
+    <div class="inputs-demo">
+      <p class="radiogroup">
+        <label>javascript</label><input type="radio" name="opt2" checked value="sg" />
+        <label>node.js</label><input type="radio" name="opt2" value="sh" />
+        <label>zepto.js</label><input type="radio" name="opt2" value="xy" />
+      </p>
+    </div>
+  </pre>
+
+  <h3>ui radio inline</h3>
+  <p>class="radiogroup radio-inline" pair label with radio</p>
+  <pre class="html">
+    <div class="inputs-demo">
+      <p class="radiogroup radio-inline">
+        <label>javascript</label><input type="radio" name="opt3" checked value="sg" />
+        <label>node.js</label><input type="radio" name="opt3" value="sh" />
+        <label>zepto.js</label><input type="radio" name="opt3" value="xy" />
+      </p>
+    </div>
+  </pre>
+
+  <h3>ui radio inline,shadow</h3>
+  <p>class="radiogroup radio-inline with-shadow" pair label with radio</p>
+  <pre class="html">
+    <div class="inputs-demo">
+      <p class="radiogroup radio-inline with-shadow">
+        <label>javascript</label><input type="radio" name="opt3" checked value="sg" />
+        <label>node.js</label><input type="radio" name="opt3" value="sh" />
+        <label>zepto.js</label><input type="radio" name="opt3" value="xy" />
+      </p>
+    </div>
+  </pre>
+
+  <h3>button,reset,submit</h3>
+  <div class="inputs-demo">
+    <p><input type="button" value="button"/></p>
+    <p><input type="reset" /></p>
+    <p><input type="submit" /></p>
+  </div>
+
+  <h3>ui button,reset,submit</h3>
+  <pre class="html">
+    <div class="inputs-demo">
+      <p><input type="button" value="button" class="btn btn-a shadow" /></p>
+      <p><input type="reset" class="btn btn-c shadow" /></p>
+      <p><input type="submit" class="btn btn-b shadow" /></p>
+    </div>
+  </pre>
+
+  <h3>default checkbox</h3>
+  <div class="inputs-demo">
+    <p><label for="c1">Enable</label><input type="checkbox" name="c1"/></p>
+  </div>
+
+  <h3>ui checkbox</h3>
+  <p>用 class="ui-checkbox" or class="ui-checkbox with-shadow"(box-shadow) , pair label with radio</p>
+  <pre class="html">
+    <div class="inputs-demo">
+      <p>
+        <label for="c2">Enable1</label><input type="checkbox" name="c2" class="ui-checkbox" />
+        <label for="c3">Enable2</label><input type="checkbox" name="c3" class="ui-checkbox" />
+        <label for="c4">Enable3</label><input type="checkbox" name="c4" class="ui-checkbox with-shadow" />
+      </p>
+    </div>
+  </pre>
+
+  <h3>ui checkbox, inline</h3>
+  <div class="inputs-demo">
+    <p>
+      <label for="c2">Enable1</label><input type="checkbox" name="c2" class="ui-checkbox checkbox-inline" />
+      <label for="c3">Enable2</label><input type="checkbox" name="c3" class="ui-checkbox checkbox-inline" />
+      <label for="c4">Enable3</label><input type="checkbox" name="c4" class="ui-checkbox checkbox-inline" />
+      <input type="checkbox" name="c4" class="ui-checkbox checkbox-inline" />
+    </p>
+  </div>
+
+  <h3>select</h3>
+  <pre class="html">
+    <div class="inputs-demo">
+      <p>
+        <select class="btn btn-a select">
+          <option value="bj">javascript</option>
+          <option value="sh">zepto.js</option>
+          <option value="sz">html5beta.com</option>
+          <option value="cd">jQuery</option>
+          <option value="cq">zui</option>
+        </select>
+      </p>
+    </div>
+  </pre>
+
+  <h3>select, inline</h3>
+  <pre class="html">
+    <div class="inputs-demo">
+      <p>
+        <select class="btn btn-a select select-inline">
+          <option value="bj">javascript</option>
+          <option value="sh">zepto.js</option>
+          <option value="sz">html5beta.com</option>
+          <option value="cd">jQuery</option>
+          <option value="cq">zui</option>
+        </select>
+      </p>
+    </div>
+  </pre>
+
+  <h2>debug,initUI</h2>
+  
+  <h3>debug</h3>
+  <p>see the footer </p>
+  <pre class="js2">
+    debugON = true
+    debug('debug info.')
+    //for mobile device debug
+  </pre>
+  
+  <h3>initUI</h3>
+  <pre class="js2">
+    //default function
+    initUI()
+    
+    //for new created ui elem
+    $('body').append('<div id="new"><a class="btn btn-b">new btn</a></div>')
+    initUI('#new') //not a proper solution, for now it will cover the problem
+  </pre>
+  
+  <h2><span class="bold">how to use</span></h2>
+  <pre class="html2">
+    &lt;!-- css --&gt;
+    &lt;link rel="stylesheet" type="text/css" href="css/zui.css"&gt;
+    &lt;link rel="stylesheet" type="text/css" href="css/your-css.css"&gt;
+    
+    &lt;!-- js --&gt;
+    &lt;script src="js/zui.js"&gt;&lt;/script&gt;
+    &lt;script src="js/your-js.js"&gt;&lt;/script&gt;
+  </pre>
+  <pre class="js2">
+
+    //initUI in proper position of your-js.js
+    initUI()
+
+  </pre>
+
+
+  <h2 class="aligncenter">about</h2>
+  <div class="aligncenter">
+    <p>a mobile ui framework based on zepto.js</p>
+    <p>it is far from stable,this is the very first release.</p>
+    <p>Created by <a href="http://html5beta.com">ZHAO Xudong</a></p>
+    <p>
+      <a href="http://html5beta.com">blog</a> -
+      <a rel="external nofollow" href="http://github.com/zxdong262">github</a> -
+      <a rel="external nofollow" href="http://stackoverflow.com/users/615576/zhao-xudong">stackoverflow</a> -
+      <a rel="external nofollow" href="http://weibo.com/html5beta">weibo</a> - 
+      <a rel="external nofollow" href="mailto:zxdong@gmail.com">email</a> -
+      <a rel="external nofollow" href="javascript:popup({content:'986839138'})">QQ</a>
+    </p>
+  
+  
+    <div id="qrcode" class="bordert borderb pdtb mgtb"></div>
+  
+    <div id="debug" class="pd">
+      <p>debug:</p>
+    </div>
+  
+  </div>
+</div>
+<!--/wrapper -->
+<!--<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"></script>--> 
+<script src="../js/zepto.min.js"></script>
+<script src="../js/zui.js"></script>
+<script src="js/jquery.qrcode.min.js"></script>
+<script src="js/demo.js"></script>
+</body>
+</html>
