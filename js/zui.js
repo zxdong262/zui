@@ -225,8 +225,8 @@ function initUI(fa) {
 		if(grid.length>1) g = grid[1].split(' ')[0]
         var gn = parseInt(g,10)
         ,lenc = t.children().length
-        ,let = lenc % gn
-        ,len = let?Math.floor( lenc / gn ) + 1:Math.floor( lenc / gn )
+        ,let0 = lenc % gn
+        ,len = let0?Math.floor( lenc / gn ) + 1:Math.floor( lenc / gn )
         for(var i = 0;i < len ;i ++) {
             t.children().filter(function(index) {
                 return index < gn * (i + 1)
@@ -236,8 +236,8 @@ function initUI(fa) {
             t.children('.row-' + j).wrapAll('<div class="tablerow" />')
         }
         t.children().children().wrap('<div class="tablecell grid-cell" />')
-        if(let) {
-            var xl = gn - let
+        if(let0) {
+            var xl = gn - let0
             ,tl = t.children().last()
             for(var k = 0;k < xl;k ++) {
                tl.append('<div class="tablecell grid-cell"></div>')
