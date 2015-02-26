@@ -374,8 +374,8 @@ $.fn.modal = function(opts){
     mcw.removeClass('scroll').height('auto')
 
     var
-    w = $(window).width()
-    ,h = $(window).height()
+    w = screen.width()
+    ,h = screen.height()
     ,ww = defaults.width
     ,hh = mcw.height()
     ,ht = t.height()
