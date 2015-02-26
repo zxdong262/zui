@@ -1,5 +1,7 @@
 # zui
 
+# obsolete! do not use it.
+
 ## About zui
 
 a ui framework based on zepto.js for modern browsers
